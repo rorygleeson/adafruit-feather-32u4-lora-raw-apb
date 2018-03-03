@@ -6,8 +6,10 @@ my notes on getting it to work with a single channel (dragino)  LoRa gateway. Sh
 1) Set up power and antenna , follow instructions here. https://learn.adafruit.com/adafruit-feather-32u4-radio-with-lora-radio-module/
 
 2) Connect 2 pins on the board together. 
+
 Connect Pins (labled on both front and back) 6 and IO1
 (IO1 is at the very corner of the chip, oppisite end to the usb and battery ports. 6 is the oppiste side, 4 positions up from bottom). 
+why does this need to be done ? see below.
 
 2) Then follow instructions here .. skip to "Getting things started on ‘The Things Network" https://www.thethingsnetwork.org/labs/story/creating-a-ttn-node
 
@@ -52,3 +54,31 @@ const lmic_pinmap lmic_pins = {
 
 
 Thats it, upload and verify data received in the ttn console. 
+
+
+
+
+
+
+notes from https://www.thethingsnetwork.org/forum/t/got-adafruit-feather-32u4-lora-radio-to-work-and-here-is-how/6863/44
+
+It seems the board requires the following pin mapping, however IO1 and 6 are not connected, hence why we need to wire it up.
+
+LED - 13 (LED_BUILTIN)
+
+RFM9x/SX127x LoRa module
+NSS - 8
+MOSI - 16/MOSI
+MISO - 14/MISO
+SCK - 15/SCK
+RST - 4
+DIO0 - 7
+DIO1 - 6 (Not wired onboard, must be explicitly wired).
+
+OLED display
+SDA - 2/SDA
+SCL - 3/SCL
+
+
+
+
