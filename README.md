@@ -9,9 +9,16 @@ my notes on getting it to work with a single channel (dragino)  LoRa gateway. Sh
 Connect Pins (labled on both front and back) 6 and IO1
 (IO1 is at the very corner of the chip, oppisite end to the usb and battery ports. 6 is the oppiste side, 4 positions up from bottom). 
 
-2) Then follow instructions here https://www.thethingsnetwork.org/labs/story/creating-a-ttn-node
+2) Then follow instructions here .. skip to "Getting things started on ‘The Things Network" https://www.thethingsnetwork.org/labs/story/creating-a-ttn-node
 
-2) After the new libraries are installed, there should be example programs for the LMIC-Arduino, find the one called ttn-abp (file->examples->LMIC-Arduino->ttn-abp.   Make a new project with a copy of ttn-abp
+Libraries installed above 
+IBM Arduino-LMIC library, nicely modified for Arduino IDE by Matthijs Kooijman  https://github.com/matthijskooijman/arduino-lmic
+From RocketScream A lightweight low power library for Arduino. https://github.com/rocketscream/Low-Power
+
+
+2) After the new libraries are installed, there should be example programs for the LMIC-Arduino in the Arduino IDE, find the one called ttn-abp (file->examples->LMIC-Arduino->ttn-abp.   Make a new project with a copy of ttn-abp
+
+
 
 3) Modify this file, change pin mappings to..
 
