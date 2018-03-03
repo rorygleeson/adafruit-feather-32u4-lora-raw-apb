@@ -24,7 +24,7 @@ Do only the following sections from https://learn.adafruit.com/adafruit-feather-
 
 
 
-3) Install necessary library for Arduino IDE.
+4) Install necessary library for Arduino IDE.
 
 IBM Arduino-LMIC library, nicely modified for Arduino IDE by Matthijs Kooijman 
 
@@ -44,11 +44,11 @@ Select the downloaded Arduino-lmic-master.zip file from your download location
 
 
 
-4) After the new library is installed, there should be example programs for the LMIC-Arduino in the Arduino IDE, find the one called ttn-abp (file->examples->LMIC-Arduino->ttn-abp.   Make a new project with a copy of ttn-abp
+5) After the new library is installed, there should be example programs for the LMIC-Arduino in the Arduino IDE, find the one called ttn-abp (file->examples->LMIC-Arduino->ttn-abp.   Make a new project with a copy of ttn-abp
 
 
 
-5) Modify this file, change pin mappings to..
+6) Modify this file, change pin mappings to..
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
@@ -58,14 +58,14 @@ const lmic_pinmap lmic_pins = {
     .dio = {7,6,LMIC_UNUSED_PIN},
 };
 
-6) Update the following values to match the things network device that you created previously ..
+7) Update the following values to match the things network device that you created previously ..
 
 - LoRaWAN NwkSKey, network session key
 - LoRaWAN AppSKey, application session key
 - LoRaWAN end-device address 
 
 
-7) If in Australia, change frequencies. I just overwite the frequency values in the ttn-abp file, and changed all to 915000000. Need to tidy this up, its currently trying 0-8 (9) different frequencies, but our gateway only supports one... but it will work for a quick demo, just change  all LMIC_setupChannel freq to 915000000.  Note. Although there is a config.h file, which allows frequency to be configured, there is something preventing this being used when rebuilt. So for now just change in main ttn-abp.ino file. 
+8) If in Australia, change frequencies. I just overwite the frequency values in the ttn-abp file, and changed all to 915000000. Need to tidy this up, its currently trying 0-8 (9) different frequencies, but our gateway only supports one... but it will work for a quick demo, just change  all LMIC_setupChannel freq to 915000000.  Note. Although there is a config.h file, which allows frequency to be configured, there is something preventing this being used when rebuilt. So for now just change in main ttn-abp.ino file. 
 
 
     LMIC_setupChannel(0, 915000000, DR_RANGE_MAP(DR_SF12, DR_SF7),  BAND_CENTI);      // g-band
@@ -79,13 +79,13 @@ const lmic_pinmap lmic_pins = {
     LMIC_setupChannel(8, 915000000, DR_RANGE_MAP(DR_FSK,  DR_FSK),  BAND_MILLI);      // g2-band
 
 
-8) In Arduino IDE, set Tools/Board = Adafruit Feather 32u4. 
+9) In Arduino IDE, set Tools/Board = Adafruit Feather 32u4. 
 
-9) Verify / Compile
+10) Verify / Compile
 
-10) Upload
+11) Upload
 
-11) In The Things Network console, in the application/devices open the device and verify data is being uploaded. 
+12) In The Things Network console, in the application/devices open the device and verify data is being uploaded. 
 
 
 --------------------------------------------------------------------------------------------
