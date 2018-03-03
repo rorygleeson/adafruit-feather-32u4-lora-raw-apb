@@ -12,12 +12,17 @@ Connect Pins (labled on both front and back) 6 and IO1
 why does this need to be done ? see below.
 
 
-3) Setup Arduino IDE to support adafruit feather 32u4 board. Only do the following sections. 
+3) Setup Arduino IDE to support adafruit feather 32u4 board as per here:
+
+Do only the following sections from https://learn.adafruit.com/adafruit-feather-32u4-radio-with-lora-radio-module/
 
 - Antenna Options
 - Power Management
 - Arduino IDE Setup
 - Using with Arduino IDE
+
+
+
 
 3) Install necessary library for Arduino IDE.
 
@@ -60,7 +65,7 @@ const lmic_pinmap lmic_pins = {
 - LoRaWAN end-device address 
 
 
-7) If in Australia, change frequencies. I just overwite the frequency values in the ttn-abp file, and changed all to 915000000. Need to tidy this up, its currently trying 0-8 (9) different frequencies, but our gateway only supports one... but it will work for a quick demo, just change  all LMIC_setupChannel freq to 915000000.
+7) If in Australia, change frequencies. I just overwite the frequency values in the ttn-abp file, and changed all to 915000000. Need to tidy this up, its currently trying 0-8 (9) different frequencies, but our gateway only supports one... but it will work for a quick demo, just change  all LMIC_setupChannel freq to 915000000.  Note. Although there is a config.h file, which allows frequency to be configured, there is something preventing this being used when rebuilt. So for now just change in main ttn-abp.ino file. 
 
 
     LMIC_setupChannel(0, 915000000, DR_RANGE_MAP(DR_SF12, DR_SF7),  BAND_CENTI);      // g-band
@@ -74,7 +79,13 @@ const lmic_pinmap lmic_pins = {
     LMIC_setupChannel(8, 915000000, DR_RANGE_MAP(DR_FSK,  DR_FSK),  BAND_MILLI);      // g2-band
 
 
-Thats it, upload and verify data received in the ttn console. 
+8) In Arduino IDE, set Tools/Board = Adafruit Feather 32u4. 
+
+9) Verify / Compile
+
+10) Upload
+
+11) In The Things Network console, in the application/devices open the device and verify data is being uploaded. 
 
 
 --------------------------------------------------------------------------------------------
