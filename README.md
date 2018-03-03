@@ -11,10 +11,19 @@ Connect Pins (labled on both front and back) 6 and IO1
 (IO1 is at the very corner of the chip, oppisite end to the usb and battery ports. 6 is the oppiste side, 4 positions up from bottom). 
 why does this need to be done ? see below.
 
-3) Install necessary library..
 
-IBM Arduino-LMIC library, nicely modified for Arduino IDE by Matthijs Kooijman  https://github.com/matthijskooijman/arduino-lmic
+3) Setup Arduino IDE to support adafruit feather 32u4 board. Only do the following sections. 
 
+- Antenna Options
+- Power Management
+- Arduino IDE Setup
+- Using with Arduino IDE
+
+3) Install necessary library for Arduino IDE.
+
+IBM Arduino-LMIC library, nicely modified for Arduino IDE by Matthijs Kooijman 
+
+Goto https://github.com/matthijskooijman/arduino-lmic
 
 Choose ‘Clone or download’
 
