@@ -3,8 +3,13 @@
 
 my notes on getting it to work with a single channel (dragino)  LoRa gateway. Should work with any single channel gateway. 
 
-1) Follow instructions here, https://www.thethingsnetwork.org/forum/t/got-adafruit-feather-32u4-lora-radio-to-work-and-here-is-how/6863
-, but only do steps 1 to 5.
+1) Set up power and antenna , follow instructions here. https://learn.adafruit.com/adafruit-feather-32u4-radio-with-lora-radio-module/
+
+2) Connect 2 pins on the board together. 
+Connect Pins (labled on both front and back) 6 and IO1
+(IO1 is at the very corner of the chip, oppisite end to the usb and battery ports. 6 is the oppiste side, 4 positions up from bottom). 
+
+2) Then follow instructions here https://www.thethingsnetwork.org/labs/story/creating-a-ttn-node
 
 2) After the new libraries are installed, there should be example programs for the LMIC-Arduino, find the one called ttn-abp (file->examples->LMIC-Arduino->ttn-abp.   Make a new project with a copy of ttn-abp
 
@@ -18,7 +23,14 @@ const lmic_pinmap lmic_pins = {
     .dio = {7,6,LMIC_UNUSED_PIN},
 };
 
-4) If in Australia, change frequencies. I just overwite the frequency values in the ttn-abp file, and changed all to 915000000. Need to tidy this up, its currently trying 0-8 (9) different frequencies, but our gateway only supports one... but it will work for a quick demo, just change  all LMIC_setupChannel freq to 915000000.
+4) Update the following values to match the things network device that you created previously ..
+
+- LoRaWAN NwkSKey, network session key
+- LoRaWAN AppSKey, application session key
+- LoRaWAN end-device address 
+
+
+5) If in Australia, change frequencies. I just overwite the frequency values in the ttn-abp file, and changed all to 915000000. Need to tidy this up, its currently trying 0-8 (9) different frequencies, but our gateway only supports one... but it will work for a quick demo, just change  all LMIC_setupChannel freq to 915000000.
 
 
     LMIC_setupChannel(0, 915000000, DR_RANGE_MAP(DR_SF12, DR_SF7),  BAND_CENTI);      // g-band
