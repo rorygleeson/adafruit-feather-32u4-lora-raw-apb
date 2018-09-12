@@ -1,4 +1,4 @@
-"# adafruit-feather-32u4-lora-raw-apb" 
+"# adafruit-feather-32u4-lora-raw-abp" 
 
 
 my notes on getting it to work with a single channel (dragino)  LoRa gateway. Should work with any single channel gateway. 
